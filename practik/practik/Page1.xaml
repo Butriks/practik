@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="practik.Page1"
+             BackgroundColor="#00BFFF">
+
+    <StackLayout Margin="30" Spacing="20">
+        <Label Text="Мессенджер"
+               FontFamily="PT Sans"
+               FontSize="Large"
+               FontAttributes="Bold"
+               TextColor="#FFFFFF"
+               HorizontalOptions="Center"/>
+        <Frame CornerRadius="10"
+               BackgroundColor="White"
+               Padding="10"
+               HasShadow="True"
+               Margin="0,10"
+               BorderColor="Crimson"
+               VerticalOptions="CenterAndExpand">
+            <Frame.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Offset="0.1" Color="#FFA07A" />
+                    <GradientStop Offset="0.3" Color="SkyBlue" />
+                    <GradientStop Offset="0.5" Color="#EE82EE" />
+                    <GradientStop Offset="0.7" Color="#DDA0DD" />
+                </LinearGradientBrush>
+            </Frame.Background>
+            <StackLayout Spacing="10">
+                <ListView x:Name="ChatListView"
+                          SeparatorVisibility="None"
+                          HasUnevenRows="True"
+                          BackgroundColor="Transparent">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame CornerRadius="10"
+                                       BackgroundColor="#FFA07A"
+                                       Padding="10"
+                                       HasShadow="True"
+                                       HorizontalOptions="Start">
+                                    <StackLayout>
+                                        <Label Text="{Binding Sender}"
+                                               FontFamily="PT Sans"
+                                               FontSize="Medium"
+                                               TextColor="White"/>
+                                        <Label Text="{Binding Message}"
+                                               FontFamily="PT Sans"
+                                               FontSize="Small"
+                                               TextColor="White"
+                                               LineBreakMode="WordWrap"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <StackLayout Orientation="Horizontal">
+                    <Entry x:Name="MessageEntry"
+                           Placeholder="Введите сообщение..."
+                           FontFamily="PT Sans"
+                           FontSize="Medium"
+                           PlaceholderColor="#999999"
+                           TextColor="#666666"
+                           VerticalOptions="CenterAndExpand"/>
+                    <Button x:Name="SendButton"
+                            Text="Отправить"
+                            FontFamily="PT Sans"
+                            FontSize="Medium"
+                            TextColor="White"
+                            BackgroundColor="#FFA07A"
+                            CornerRadius="20"
+                            BorderWidth="0"
+                            HeightRequest="40"
+                            WidthRequest="100"
+                            VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+
+</ContentPage>
